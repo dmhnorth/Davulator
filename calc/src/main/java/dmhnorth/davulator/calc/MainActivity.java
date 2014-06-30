@@ -16,6 +16,9 @@ public class MainActivity extends ActionBarActivity {
     private String op ="+";
     private String operation ="Yeah?\n";
     private int value;
+    private TextView operandText;
+    private TextView operationText;
+    private TextView opText;
 
 
     @Override
@@ -23,11 +26,25 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //Reloading a state contingency
         if(savedInstanceState != null) {
+
             total = savedInstanceState.getInt("total");
             value = savedInstanceState.getInt("value");
-            //Needs to update the view
+            operation = savedInstanceState.getString("operation");
 
+            //Get the operandText
+            operandText = (TextView)
+                    findViewById(R.id.textView);
+
+            //Get the operationText
+            operationText = (TextView)
+                    findViewById(R.id.textView3);
+
+            //Update the view to reflect loaded values
+            operandText.setText(Integer.toString(total));
+            operationText.setText(operation);
         }
     }
 
@@ -37,26 +54,29 @@ public class MainActivity extends ActionBarActivity {
     protected void onSaveInstanceState(
             Bundle savedInstanceState){
         savedInstanceState.putInt("total",total);
-        savedInstanceState.putInt("value",value);
+        savedInstanceState.putInt("value", value);
+        savedInstanceState.putString("operation", operation);
         super.onSaveInstanceState(savedInstanceState);
     }
 
     public void onButtonClick(View v) {
+
         //Get the opText
-        TextView opText = (TextView)
+        opText = (TextView)
                 findViewById(R.id.textView2);
 
         //Get the operandText
-        TextView operandText = (TextView)
+        operandText = (TextView)
                 findViewById(R.id.textView);
 
         //Get the operationText
-        TextView operationText = (TextView)
+        operationText = (TextView)
                 findViewById(R.id.textView3);
 
         //Find the button and it's details
         Button button = (Button) v;
         String bText = (String) button.getText();
+
 /*
         //TODO
         //Check if a character has been entered, to append to current..
