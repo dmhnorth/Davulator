@@ -26,6 +26,21 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Get the operandText
+        operandText = (TextView)
+                findViewById(R.id.textView);
+
+        //Get the operationText
+        operationText = (TextView)
+                findViewById(R.id.textView3);
+
+        //Get the opText
+        opText = (TextView)
+                findViewById(R.id.textView2);
+
+        //Update the opText to reflect Calc start state
+        opText.setText(op);
+
 
         //Reloading a state contingency
         if(savedInstanceState != null) {
@@ -35,17 +50,6 @@ public class MainActivity extends ActionBarActivity {
             operation = savedInstanceState.getString("operation");
             op = savedInstanceState.getString("opText");
 
-            //Get the operandText
-            operandText = (TextView)
-                    findViewById(R.id.textView);
-
-            //Get the operationText
-            operationText = (TextView)
-                    findViewById(R.id.textView3);
-
-            //Get the opText
-            opText = (TextView)
-                    findViewById(R.id.textView2);
 
             //Update the view to reflect loaded values
             operandText.setText(Integer.toString(total));
