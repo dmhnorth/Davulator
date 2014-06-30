@@ -15,16 +15,31 @@ public class MainActivity extends ActionBarActivity {
     private int total = 0;
     private String op ="+";
     private String operation ="Yeah?\n";
+    private int value;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(savedInstanceState != null) {
+            total = savedInstanceState.getInt("total");
+            value = savedInstanceState.getInt("value");
+            //Needs to update the view
+
+        }
     }
 
 
 
+    @Override
+    protected void onSaveInstanceState(
+            Bundle savedInstanceState){
+        savedInstanceState.putInt("total",total);
+        savedInstanceState.putInt("value",value);
+        super.onSaveInstanceState(savedInstanceState);
+    }
 
     public void onButtonClick(View v) {
         //Get the opText
@@ -102,7 +117,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         //Parse an operand
-        int value = Integer.parseInt(bText);
+        value = Integer.parseInt(bText);
 
         //Determine op
         if(op.equals("+")) {
@@ -119,6 +134,10 @@ public class MainActivity extends ActionBarActivity {
             //currently does not account for remainders
         }
     }
+
+
+
+
 
 
     @Override
