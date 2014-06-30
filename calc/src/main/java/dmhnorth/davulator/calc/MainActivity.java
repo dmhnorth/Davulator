@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
         //Find the button and it's details
         Button button = (Button) v;
         String bText = (String) button.getText();
-
+/*
         //TODO
         //Check if a character has been entered, to append to current..
         assert bText != null;
@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity {
         } else {
             //operation = operation + op;
         }
-
+*/
         operandText.setText(bText);
 
 
