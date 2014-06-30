@@ -81,13 +81,18 @@ public class MainActivity extends ActionBarActivity {
         //TODO
         //Check if a character has been entered, to append to current..
         assert bText != null;
-        if(Character.isDigit(bText.charAt(0))){
-            bText = (value*10) + bText;
-            return;
-        } else {
-            //operation = operation + op;
+        if(Character.isDigit(bText.charAt(0))) {
+            try {
+                value = (value * 10) + Integer.parseInt(bText);
+                operandText.setText(value);
+                return;
+            } catch (Exception e){
+                //do nothing
+            }
         }
-*/
+  */
+
+
         operandText.setText(bText);
 
 
