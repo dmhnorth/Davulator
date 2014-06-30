@@ -33,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
             total = savedInstanceState.getInt("total");
             value = savedInstanceState.getInt("value");
             operation = savedInstanceState.getString("operation");
+            op = savedInstanceState.getString("opText");
 
             //Get the operandText
             operandText = (TextView)
@@ -42,9 +43,14 @@ public class MainActivity extends ActionBarActivity {
             operationText = (TextView)
                     findViewById(R.id.textView3);
 
+            //Get the opText
+            opText = (TextView)
+                    findViewById(R.id.textView2);
+
             //Update the view to reflect loaded values
             operandText.setText(Integer.toString(total));
             operationText.setText(operation);
+            opText.setText(op);
         }
     }
 
@@ -53,9 +59,12 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onSaveInstanceState(
             Bundle savedInstanceState){
+        //Stores all useful values in the (key,value) map
         savedInstanceState.putInt("total",total);
         savedInstanceState.putInt("value", value);
         savedInstanceState.putString("operation", operation);
+        savedInstanceState.putString("opText",op);
+
         super.onSaveInstanceState(savedInstanceState);
     }
 
