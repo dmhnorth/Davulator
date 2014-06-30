@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -74,18 +73,6 @@ public class MainActivity extends ActionBarActivity {
 
     public void onButtonClick(View v) {
 
-        //Get the opText
-        opText = (TextView)
-                findViewById(R.id.textView2);
-
-        //Get the operandText
-        operandText = (TextView)
-                findViewById(R.id.textView);
-
-        //Get the operationText
-        operationText = (TextView)
-                findViewById(R.id.textView3);
-
         //Find the button and it's details
         Button button = (Button) v;
         String bText = (String) button.getText();
@@ -95,7 +82,8 @@ public class MainActivity extends ActionBarActivity {
         //Check if a character has been entered, to append to current..
         assert bText != null;
         if(Character.isDigit(bText.charAt(0))){
-            bText = total + bText;
+            bText = (value*10) + bText;
+            return;
         } else {
             //operation = operation + op;
         }
@@ -105,6 +93,7 @@ public class MainActivity extends ActionBarActivity {
 
 
         //Stop concatenation of operation
+        assert bText != null;
         if(bText.equals("Calculate")){
             //do nothing
         } else if (bText.equals("Clear")) {
@@ -122,26 +111,25 @@ public class MainActivity extends ActionBarActivity {
 
 
         //Search for an Operator
-        assert bText != null;
+
         if(bText.equals(op)){
-            //do nothing due to accident press.
+            //do nothing due to accidental button press.
             return;
         }
+
+        opText.setText(op);
+
         if(bText.equals("+")){
             op = "+";
-            opText.setText(op);
             return;
         } else if(bText.equals("-")){
             op = "-";
-            opText.setText(op);
             return;
         } else if(bText.equals("*")){
             op = "*";
-            opText.setText(op);
             return;
         } else if(bText.equals("/")){
             op = "/";
-            opText.setText(op);
             return;
         } else if(bText.equals("Calculate")){
             opText.setText("=");
@@ -161,10 +149,12 @@ public class MainActivity extends ActionBarActivity {
         }
         if(op.equals("*")) {
             total = total * value;
+            //currently does not take precedence over + or -
         }
         if(op.equals("/")) {
             total = total / value;
-            //currently does not account for remainders
+            //currently does not take precedence over + or -
+            //currently does not account for remainder
         }
     }
 
