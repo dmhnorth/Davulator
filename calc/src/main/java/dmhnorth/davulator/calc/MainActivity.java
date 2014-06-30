@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -44,8 +45,9 @@ public class MainActivity extends ActionBarActivity {
 
         //TODO
         //Check if a character has been entered, to append to current..
+        assert bText != null;
         if(Character.isDigit(bText.charAt(0))){
-
+            bText = total + bText;
         } else {
             //operation = operation + op;
         }
