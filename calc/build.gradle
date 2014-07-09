@@ -12,6 +12,7 @@ android {
     }
     buildTypes {
         release {
+            //This is for obfustication of a project
             runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }

@@ -77,20 +77,21 @@ public class MainActivity extends ActionBarActivity {
         Button button = (Button) v;
         String bText = (String) button.getText();
 
-/*
+
         //TODO
-        //Check if a character has been entered, to append to current..
-        assert bText != null;
-        if(Character.isDigit(bText.charAt(0))) {
-            try {
-                value = (value * 10) + Integer.parseInt(bText);
-                operandText.setText(value);
-                return;
-            } catch (Exception e){
-                //do nothing
-            }
-        }
-  */
+//        currently probably doesn't work due to initialisation of the bText variable ?
+//        Check if a character has been entered, to append to current..
+//        assert bText != null;
+//        if(Character.isDigit(bText.charAt(0))) {
+//            try {
+//                value = (value * 10) + Integer.parseInt(bText);
+//                operandText.setText(value);
+//                return;
+//            } catch (Exception e){
+//                //do nothing
+//            }
+//        }
+
 
 
         operandText.setText(bText);
@@ -166,7 +167,7 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-
+    //These are default implementations when creating an Android project
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
